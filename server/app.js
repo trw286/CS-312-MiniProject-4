@@ -35,7 +35,7 @@ app.use(session({
 	}
 }));
 
-// health check
+// health check (for error handling)
 app.get('/api/health', (_req, res) => {
 	res.json({ ok: true, timestamp: Date.now() });
 });

@@ -20,7 +20,8 @@ export default function SignUp() {
     const navigate = useNavigate();
 
     // update dynamically as information is entered
-    const onChange = event => setForm({ ...form, [event.target.name]: event.target.value });
+    const onChange = event => 
+            setForm({ ...form, [event.target.name]: event.target.value });
 
     // on "sign up"
     const onSubmit = async error => {
@@ -57,7 +58,9 @@ export default function SignUp() {
 
                         { /* userID field */}
                         <label className = "form-label">User ID</label>
-                        <input className = "form-control" name = "user_id" value = {form.user_id} onChange = {onChange} required />
+                        <input className = "form-control" name = "user_id" 
+                               value = {form.user_id} 
+                               onChange = {onChange} required />
 
                     </div>
 
@@ -65,7 +68,10 @@ export default function SignUp() {
 
                         { /* password field */}
                         <label className = "form-label">Password</label>
-                        <input className = "form-control" name = "password" type = "password" value = {form.password} onChange = {onChange} required />
+                        <input className = "form-control" 
+                               name = "password" type = "password" 
+                               value = {form.password} 
+                               onChange = {onChange} required />
 
                     </div>
 
@@ -73,17 +79,21 @@ export default function SignUp() {
 
                         { /* username field */}
                         <label className = "form-label">Name</label>
-                        <input className = "form-control" name = "name" value = {form.name} onChange = {onChange} required />
+                        <input className = "form-control" 
+                               name = "name" value = {form.name} 
+                               onChange = {onChange} required />
 
                     </div>
 
                     { /* sign up button */}
-                    <button className = "btn btn-primary w-100" type = "submit">Create Account</button>
+                    <button className = "btn btn-primary w-100" 
+                            type = "submit">Create Account</button>
 
                 </form>
 
                 { /* message for errors or successes */}
-                {message && <div className = "alert alert-info mt-3">{message}</div>}
+                {message && 
+                <div className = "alert alert-info mt-3">{message}</div>}
 
             </div>
 

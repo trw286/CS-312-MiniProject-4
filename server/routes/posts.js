@@ -34,7 +34,8 @@ router.get('/', async (_req, res) => {
 	// get posts from db
 	try {
 		const {rows} = await pool.query(
-			`SELECT blog_id, creator_name, creator_user_id, title, body, date_created
+			`SELECT blog_id, creator_name, creator_user_id, title, body, 
+			date_created
 			FROM blogs
 			ORDER BY date_created DESC, blog_id DESC`
 		);
@@ -58,7 +59,8 @@ router.get('/:id', async (req, res) => {
 
 		// query
     	const { rows } = await pool.query(
-			`SELECT blog_id, creator_name, creator_user_id, title, body, date_created
+			`SELECT blog_id, creator_name, creator_user_id, title, body, 
+			date_created
 			FROM blogs
 			WHERE blog_id = $1`,
       		[req.params.id]
@@ -88,7 +90,8 @@ router.post('/', requireAuth, async (req, res) => {
     	const { title, body } = req.body || {};
     	
 		// validate contents
-    	if (typeof title !== 'string' || typeof body !== 'string' || !title.trim() || !body.trim()) {
+    	if (typeof title !== 'string' || typeof body !== 'string' 
+									  || !title.trim() || !body.trim()) {
       		return res.status(400).json({ error: 'Missing required fields' });
     	}
 
@@ -100,7 +103,8 @@ router.post('/', requireAuth, async (req, res) => {
 
 		// query
     	await pool.query(
-			`INSERT INTO blogs (creator_user_id, creator_name, title, body, date_created)
+			`INSERT INTO blogs (creator_user_id, creator_name, title, body, 
+			date_created)
 			VALUES ($1, $2, $3, $4, NOW())`,
       		[req.session.user.user_id, req.session.user.name, title, body]
     	);

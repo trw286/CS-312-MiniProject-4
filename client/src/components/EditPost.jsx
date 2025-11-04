@@ -42,7 +42,8 @@ export default function EditPost() {
 
             // error handling
             catch (error) {
-                setMessage(error.response?.data?.error || 'Error loading post.');
+                setMessage(error.response?.data?.error || 
+                          'Error loading post.');
             }
 
             // always stop loading
@@ -54,7 +55,8 @@ export default function EditPost() {
     }, [id]);
 
     // update dynamically as information is entered
-    const onChange = event => setForm({ ...form, [event.target.name]: event.target.value });
+    const onChange = event => 
+            setForm({ ...form, [event.target.name]: event.target.value });
 
     // on "save changes"
     const onSubmit = async event => {
@@ -134,8 +136,11 @@ export default function EditPost() {
 
                     {/* save + cancel buttons */}
                     <div className="d-flex gap-2">
-                        <button className="btn btn-primary" type="submit">Save Changes</button>
-                        <button type="button" className="btn btn-outline-secondary" onClick={() => navigate('/')}>
+                        <button className="btn btn-primary" 
+                                type="submit">Save Changes</button>
+                        <button type="button" 
+                                className="btn btn-outline-secondary" 
+                                onClick={() => navigate('/')}>
                             Cancel
                         </button>
                     </div>
@@ -143,7 +148,8 @@ export default function EditPost() {
                 </form>
 
                 {/* message for errors or successes */}
-                {message && <div className="alert alert-info mt-3">{message}</div>}
+                {message && 
+                <div className="alert alert-info mt-3">{message}</div>}
 
             </div>
 

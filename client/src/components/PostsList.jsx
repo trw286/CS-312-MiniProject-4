@@ -72,7 +72,7 @@ export default function PostsList() {
 
     return (
 
-        <div>
+    <div>
         {/* error message */}
         {errorMsg && <div className="alert alert-danger">{errorMsg}</div>}
 
@@ -85,11 +85,13 @@ export default function PostsList() {
                 {/* post contents */}
                 <h5 className="card-title">{post.title}</h5>
                 <p className="card-text">{post.body}</p>
-                <div className="d-flex justify-content-between align-items-center">
+                <div className="d-flex justify-content-between 
+                                align-items-center">
                 <small className="text-muted">
 
                     {/* post creator information */}
-                    By {post.creator_name} ({post.creator_user_id}) • {new Date(post.date_created).toLocaleString()}
+                    By {post.creator_name} ({post.creator_user_id}) • 
+                       {new Date(post.date_created).toLocaleString()}
 
                 </small>
 
@@ -100,8 +102,10 @@ export default function PostsList() {
                     
                     <>
                         {/* edir and delete privilages and buttons */}
-                        <Link to={`/edit/${post.blog_id}`} className="btn btn-sm btn-outline-primary">Edit</Link>
-                        <button className="btn btn-sm btn-outline-danger" onClick={() => onDelete(post.blog_id)}>
+                        <Link to={`/edit/${post.blog_id}`} 
+                        className="btn btn-sm btn-outline-primary">Edit</Link>
+                        <button className="btn btn-sm btn-outline-danger" 
+                        onClick={() => onDelete(post.blog_id)}>
                         Delete
                         </button>
 
@@ -116,7 +120,9 @@ export default function PostsList() {
         ))}
 
         {/* message if no posts are in DB */}
-        {posts.length === 0 && <div className="alert alert-secondary">No posts yet.</div>}
-        </div>
+        {posts.length === 0 && 
+        <div className="alert alert-secondary">No posts yet.</div>}
+    </div>
+    
     );
 }

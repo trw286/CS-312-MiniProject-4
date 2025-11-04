@@ -26,7 +26,9 @@ router.post('/signup', async (req, res) => {
         }
 
         // check for existing user_id
-        const exists = await pool.query('SELECT 1 FROM users WHERE user_id = $1', [user_id]);
+        const exists = await pool.query(`SELECT 1 
+                                         FROM users 
+                                         WHERE user_id = $1`, [user_id]);
         if (exists.rowCount) {
             return res.status(409).json({ error: 'User ID already exists.' });
         }

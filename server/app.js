@@ -25,6 +25,7 @@ app.use(session({
 							tableName: 'user_sessions',
 							createTableIfMissing: true
 	}),
+	
 	secret: process.env.SESSION_SECRET || 'dev-secret',
 	resave: false,
 	saveUninitialized: false,

@@ -6,7 +6,8 @@
 
 // variables, file setups, import
 import { useEffect, useState } from 'react';
-import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link, useLocation } 
+        from 'react-router-dom';
 import client from './api/client';
 
 // component pages
@@ -99,17 +100,23 @@ function RoutedApp() {
             <div className="d-flex align-items-center gap-2">
 
                 {/* if signed in, show user */}
-                {currentUser && <span className="text-muted small">Signed in as {currentUser.name} ({currentUser.user_id})</span>}
+                {currentUser && <span className="text-muted small">Signed in as
+                             {currentUser.name} ({currentUser.user_id})</span>}
 
                 {/* if not signed in, show default buttons */}
-                {!currentUser && <Link to="/signin" className="btn btn-outline-primary btn-sm">Sign In</Link>}
-                {!currentUser && <Link to="/signup" className="btn btn-primary btn-sm">Sign Up</Link>}
+                {!currentUser && <Link to="/signin" 
+                    className="btn btn-outline-primary btn-sm">Sign In</Link>}
+                {!currentUser && <Link to="/signup" 
+                    className="btn btn-primary btn-sm">Sign Up</Link>}
 
                 {/* if signed in, show sign out button */}
-                {currentUser && <button className="btn btn-outline-secondary btn-sm" onClick={signOut}>Sign Out</button>}
+                {currentUser && <button 
+                    className="btn btn-outline-secondary btn-sm" 
+                    onClick={signOut}>Sign Out</button>}
         
                 {/* new post button */}
-                <Link to="/new" className="btn btn-success btn-sm">New Post</Link>
+                <Link to="/new" 
+                    className="btn btn-success btn-sm">New Post</Link>
             </div>
         </nav>
 

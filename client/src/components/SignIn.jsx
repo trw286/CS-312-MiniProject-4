@@ -20,7 +20,8 @@ export default function SignIn() {
     const navigate = useNavigate();
 
     // update dynamically as information is entered
-    const onChange = event => setForm({ ...form, [event.target.name]: event.target.value });
+    const onChange = event => 
+            setForm({ ...form, [event.target.name]: event.target.value });
 
     // on "sign in"
     const onSubmit = async event => {
@@ -57,7 +58,9 @@ export default function SignIn() {
 
                         { /* userID field */}
                         <label className = "form-label">User ID</label>
-                        <input className = "form-control" name = "user_id" value = {form.user_id} onChange = {onChange} required />
+                        <input className = "form-control" 
+                               name = "user_id" value = {form.user_id} 
+                               onChange = {onChange} required />
 
                     </div>
 
@@ -65,17 +68,22 @@ export default function SignIn() {
 
                         { /* password field */}
                         <label className = "form-label">Password</label>
-                        <input className = "form-control" name = "password" type = "password" value = {form.password} onChange = {onChange} required />
+                        <input className = "form-control" 
+                               name = "password" type = "password" 
+                               value = {form.password} 
+                               onChange = {onChange} required />
 
                     </div>
 
                     { /* sign-in button */}
-                    <button className = "btn btn-primary w-100" type = "submit">Sign In</button>
+                    <button className = "btn btn-primary w-100" 
+                            type = "submit">Sign In</button>
 
                 </form>
 
                 { /* message for errors or successes */}
-                {message && <div className = "alert alert-info mt-3">{message}</div>}
+                {message && 
+                <div className = "alert alert-info mt-3">{message}</div>}
 
             </div>
 

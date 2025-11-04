@@ -20,7 +20,8 @@ export default function BlogPostForm() {
     const navigate = useNavigate();
 
     // update dynamically as information is entered
-    const onChange = event => setForm({ ...form, [event.target.name]: event.target.value });
+    const onChange = event => 
+            setForm({ ...form, [event.target.name]: event.target.value });
 
     // on "publish"
     const onSubmit = async event => {
@@ -95,16 +96,20 @@ export default function BlogPostForm() {
 
                     {/* publish + cancel buttons */}
                     <div className="d-flex gap-2">
-                        <button className="btn btn-success" type="submit">Publish</button>
-                        <button type="button" className="btn btn-outline-secondary" onClick={() => navigate('/')}>
-                            Cancel
+                        <button className="btn btn-success" 
+                                type="submit">Publish</button>
+                        <button type="button" 
+                                className="btn btn-outline-secondary" 
+                                onClick={() => navigate('/')}>
+                                Cancel
                         </button>
                     </div>
 
                 </form>
 
                 {/* message for errors or successes */}
-                {message && <div className="alert alert-info mt-3">{message}</div>}
+                {message && 
+                <div className="alert alert-info mt-3">{message}</div>}
 
             </div>
 
